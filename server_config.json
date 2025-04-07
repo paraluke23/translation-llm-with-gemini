@@ -1,15 +1,10 @@
+#optional
 {
   "geminiServer": {
-    "name": "gemini-complexity-server",
+    "name": "gemini_llm_server",
     "config": {
-      "script_path": "src/gemini_server.py",
-      "env": {
-         // Optional: Add environment variables specific to the server process if needed
-         // e.g., "SOME_SERVER_SPECIFIC_VAR": "value"
-         // These will be added to the environment when the client starts the server script.
-         // Variables from the main .env file are usually inherited automatically.
-      }
+      "script_path": "gemini_server.py",
+      "env": {}
     }
   }
-  // Add configurations for other potential MCP servers here if the client needs to manage multiple servers.
 }
