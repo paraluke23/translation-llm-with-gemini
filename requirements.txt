@@ -1,0 +1,21 @@
+# Core Dependencies
+python-dotenv>=1.0.0      # For loading environment variables from .env file
+mcp                       # MCP library for client-server communication
+nest_asyncio              # Required by server for running async code in some environments
+
+# Google Cloud & AI Services
+google-generativeai>=0.5.0 # Google Gemini API client library
+google-cloud-aiplatform   # Vertex AI integration for google-generativeai
+google-cloud-translate    # Google Cloud Translation API client library
+
+# NLP (Optional - Verify if MCP server *actually* uses Spacy internally)
+# If not used by the server's tools directly, this might be removable.
+# Requires separate model download: python -m spacy download en_core_web_sm
+spacy
+
+# Server (If FastMCP relies on it internally, otherwise potentially removable)
+# Check MCP documentation if uvicorn is a direct dependency of FastMCP.
+uvicorn>=0.32.1           # ASGI server, potentially used by FastMCP
+
+# NOTE: 'requests' was removed as it didn't appear to be used in the final scripts.
+# NOTE: Duplicate entries were removed.
