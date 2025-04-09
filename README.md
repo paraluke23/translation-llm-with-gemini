@@ -54,7 +54,7 @@ Ready to get your hands dirty? Here's a step-by-step guide to setting up your lo
 
     **Important Note:** Make sure to add `.env` to your `.gitignore` file. You don't want to accidentally share your credentials!
 
-6. *** Reauthenticate gcloud if needed: **
+6. **Reauthenticate gcloud if needed:**
     ```
     gcloud auth application-default login
     ```
