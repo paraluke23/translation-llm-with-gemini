@@ -26,19 +26,25 @@ Ready to get your hands dirty? Here's a step-by-step guide to setting up your lo
     cd <repository-name>
     ```
 
-2.  **Install the Magic Ingredients:** Next, let's install all the necessary Python libraries using pip:
+2. **Set up venv:** Set up venv
+    ```bash 
+    python3 -m venv .venv 
+    source .venv/bin/activate
+    ```
+
+3.  **Install the Magic Ingredients:** Next, let's install all the necessary Python libraries using pip:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-3.  **Spice it Up with SpaCy:** This project utilizes spaCy for some natural language processing tasks. You'll need to download the English language model:
+4.  **Spice it Up with SpaCy:** This project utilizes spaCy for some natural language processing tasks. You'll need to download the English language model:
 
     ```bash
     python -m spacy download en_core_web_sm
     ```
 
-4.  **Tell Us Your Secrets (Safely!):** We need to provide your Google Cloud Project details and potentially the specific Gemini model you want to use. Create a `.env` file in the root of the repository and add the following information, replacing the placeholders with your actual data:
+5.  **Tell Us Your Secrets (Safely!):** We need to provide your Google Cloud Project details and potentially the specific Gemini model you want to use. Create a `.env` file in the root of the repository and add the following information, replacing the placeholders with your actual data:
 
     ```
     GOOGLE_CLOUD_PROJECT=your-google-cloud-project-id
@@ -48,7 +54,12 @@ Ready to get your hands dirty? Here's a step-by-step guide to setting up your lo
 
     **Important Note:** Make sure to add `.env` to your `.gitignore` file. You don't want to accidentally share your credentials!
 
-5.  **(Optional) Fine-Tune Your Server:** If you're using a `servers_config.json` file for server settings, ensure it's in the root directory and points to the `gemini_server.py` script correctly.
+6. **Reauthenticate gcloud if needed:**
+    ```
+    gcloud auth application-default login
+    ```
+     
+6.  **(Optional) Fine-Tune Your Server:** If you're using a `servers_config.json` file for server settings, ensure it's in the root directory and points to the `gemini_server.py` script correctly.
 
 ## Bringing the Application to Life
 

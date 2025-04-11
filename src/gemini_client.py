@@ -625,4 +625,26 @@ async def main() -> None:
     try:
         gemini_server = Server(
             gemini_server_config_data.get("name", "gemini_llm_server"),
-            gemini_server_config_
+            gemini_server_config_data["config"]
+        )
+
+        llm_client = LLMClient(
+            model_name=llm_model,
+            project=llm_project,
+            location=llm_location
+        )
+
+        # --- Start Chat ---
+        chat_session = ChatSession(gemini_server, llm_client)
+        await chat_session.start()
+
+    except Exception as e:
+         logging.error(f"Failed to initialize components or start chat session: {e}")
+         # Perform cleanup if possible, although server might not be initialized
+         if 'gemini_server' in locals() and gemini_server.session:
+            await gemini_server.cleanup()
+
+
+if __name__ == "__main__":
+    # load_dotenv() is called inside main() now for better encapsulation
+    asyncio.run(main())
