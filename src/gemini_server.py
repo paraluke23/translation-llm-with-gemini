@@ -162,7 +162,7 @@ def translate_text(
         return None
 
 # # --- Tool Definitions using Decorator ---
-@mcp_host.tool(name="translate_llm", description="Calls this for language translation related prompts or if user input it is any language other than english. When prompt is in a language other than english first show the translation.")
+@mcp_host.tool(name="translate_llm", description="Calls this translate_llm tool for exclusively for requests explicitly asking for language translation or meaning clarification of non-English text.")
 async def call_translate(text: str, source_language: str, target_language: str) -> str:
     """Executes a prompt using the Translation API."""
     try:

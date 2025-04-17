@@ -49,7 +49,8 @@ Ready to get your hands dirty? Here's a step-by-step guide to setting up your lo
     ```
     GOOGLE_CLOUD_PROJECT=your-google-cloud-project-id
     GOOGLE_CLOUD_LOCATION=your-google-cloud-region
-    LLM_MODEL_NAME=gemini-2.0-flash-001
+    LLM_MODEL_NAME=gemma-3-27b-it
+    GOOGLE_API_KEY="--your Google AI Studio API Key for Gemma--"
     ```
 
     **Important Note:** Make sure to add `.env` to your `.gitignore` file. You don't want to accidentally share your credentials!

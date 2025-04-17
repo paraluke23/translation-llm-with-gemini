@@ -232,9 +232,10 @@ class LLMClient:
         if not self._client:
             try:
                 self._client = genai.Client(
-                    vertexai=True,
-                    project=self.project,
-                    location=self.location,
+                    vertexai=False,
+                    # project=self.project,
+                    # location=self.location,
+                    api_key = os.getenv("GOOGLE_API_KEY", "--Missing API Key. Add API key here or in .env file--")
                 )
                 logging.info(f"GenAI client initialized for project '{self.project}' in '{self.location}'.")
             except Exception as e:
@@ -564,7 +565,7 @@ class ChatSession:
 
                     # 8. Add final assistant response to history
                     self.messages.append({"role": "assistant", "content": final_response})
-                    print(f"\nAssistant: {final_response} - MCP Model: {self.llm_model_name}")
+                    print(f"\nAssistant: {final_response} - MCP Client Model: {self.llm_model_name}")
 
                 else:
                     # It's a direct answer (not a tool call)
@@ -618,7 +619,8 @@ async def main() -> None:
     # Example: Get project/location from env vars or config file
     llm_project = os.getenv("GOOGLE_CLOUD_PROJECT", "cloud-ml-translation-test") # Default if not set
     llm_location = os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1") # Default if not set
-    llm_model = os.getenv("LLM_MODEL_NAME", "gemini-2.0-flash-001") # Default model, more flexible
+    llm_model = os.getenv("LLM_MODEL_NAME", "gemma-3-27b-it") # Default model, more flexible
+    
 
 
     # --- Initialize Components ---
